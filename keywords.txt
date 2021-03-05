@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map For CircusESP32Lib
+#######################################
+
+#######################################
+# Class (KEYWORD1)
+#######################################
+
+CircusESP32Lib	KEYWORD1	CircusESP32Lib
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+# CircusESP32Lib Class
+getCertificate	KEYWORD2
+read		KEYWORD2
+write		KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
