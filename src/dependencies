@@ -1,0 +1,19 @@
+In this library:
+
+#include "Arduino.h"
+Included natively
+
+#include "WiFi.h"
+Included natively
+
+#include <HTTPClient.h>
+Selecting ESP32 board should include it automatically.
+
+#include <WiFiClientSecure.h>
+Selecting ESP32 board should include it automatically.
+
+In some examples:
+
+#include "DHT.h"
+Install "DHT sensor library for ESPx"
+from Arduino IDE > Tools > Manage Libraries

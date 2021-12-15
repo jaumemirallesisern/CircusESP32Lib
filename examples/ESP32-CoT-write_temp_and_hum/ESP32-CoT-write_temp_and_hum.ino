@@ -14,6 +14,7 @@
 
 
 #include <CircusESP32Lib.h>
+#include "DHT.h"
 
 // ------------------------------------------------
 // These are the CircusESP32Lib related declarations

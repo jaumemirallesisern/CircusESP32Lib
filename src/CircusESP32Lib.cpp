@@ -11,16 +11,16 @@
 
 CircusESP32Lib::CircusESP32Lib(char *server, char *ssid, char *pass)
 {
-	_server = server; 
-        _ssid = ssid;
-        _pass = pass;
-    
+		_server = server;
+    _ssid = ssid;
+    _pass = pass;
 }
 
-void CircusESP32Lib::begin(){
-	WiFi.begin(_ssid, _pass); // Connect to your Wifi with the paremeters you provided at the begining
+void CircusESP32Lib::begin()
+{
+		WiFi.begin(_ssid, _pass); // Connect to your Wifi with the paremeters you provided at the begining
     	while (WiFi.status() != WL_CONNECTED) {
-		delay(1000);        
+		delay(1000);
     	}
     	if ((WiFi.status() == WL_CONNECTED)) {
         	Serial.println("Connected to WiFi");
@@ -31,8 +31,8 @@ void CircusESP32Lib::begin(){
 void CircusESP32Lib::getCertificate() {
 	HTTPClient http;
         http.begin("http://circusofthings.com:8021/rootCA.txt");
-        int httpCode = http.GET();     
-        if (httpCode > 0) { 
+        int httpCode = http.GET();
+        if (httpCode > 0) {
               	String str_root_ca = http.getString();
               	str_root_ca.toCharArray(_charBuf_rootCA, 1250);
               	Serial.println("We got certificate");
@@ -51,7 +51,7 @@ void CircusESP32Lib::write(char *key, double value, char *token) {
 		Serial.println("Connection failed!");
     	} else {
         	Serial.println("Connected to server!");
-        	char bufValue[15]; 
+        	char bufValue[15];
         	dtostrf(value,1,4,bufValue);
 		char body[150];
         	for( int i = 0; i < sizeof(body);  ++i )
@@ -73,7 +73,7 @@ void CircusESP32Lib::write(char *key, double value, char *token) {
 		while (!client.available()){
 		    	delay(50); //
 		    	Serial.print(".");
-		}  
+		}
 		Serial.println("[Circus]");
 		while (client.available()) {
 		    	char c = client.read();
@@ -109,10 +109,10 @@ double CircusESP32Lib::read(char *key, char *token) {
 		while (!client.available()){
 		    	delay(50); //
 		    	Serial.print(".");
-		}  
+		}
 		/*Serial.println("");
 		Serial.println("[Circus]");
-		while (client.available()) {			
+		while (client.available()) {
 		    	char c = client.read();
 		    	Serial.write(c);
 		}
@@ -122,7 +122,7 @@ double CircusESP32Lib::read(char *key, char *token) {
 		    	Serial.println("Server disconnected");
 		    	client.stop();
 		}
-		
+
 		char *responsebody = waitResponse(5000,&client);
 		if (responsebody!=(char)0) {
 			char labelk[] = "Key";
@@ -130,7 +130,7 @@ double CircusESP32Lib::read(char *key, char *token) {
 			char labelm[] = "Message";
 			char *message = parseServerResponse(responsebody, labelm, 3);
 			char labelv[] = "\"Value";// Double quote because can be confused with LastValueIp
-			char *value = parseServerResponse(responsebody, labelv, 2); 
+			char *value = parseServerResponse(responsebody, labelv, 2);
 			return(atof(value));
 	    	} else {
 			Serial.println("No connection");
@@ -150,7 +150,7 @@ char* CircusESP32Lib::waitResponse(int timeout, WiFiClientSecure *client) {
                 //if(_debug>1) {printer->print(c);}
                 if (c=='{') {pick=1;}
                 if(pick){responsebody[j]=c;j++;}
-                if (c=='}') {responsebody[j]='\0';pick=0;}                        
+                if (c=='}') {responsebody[j]='\0';pick=0;}
 	}
 	Serial.println("");
     	return responsebody;
@@ -176,7 +176,7 @@ Serial.println(labelsize);
         }
         i++; ini++;
     }
-	
+
     return (char)0;
 }
 
@@ -188,5 +188,3 @@ int CircusESP32Lib::count(char *text) {
     }
     return -1;
 }
-
-

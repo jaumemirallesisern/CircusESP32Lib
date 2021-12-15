@@ -1,7 +1,7 @@
 /*
   	CircusESP32Lib.h  (Version 1.0.0)
 
-	Implements the circusofthings.com API in ESP32 boards.
+	  Implements the circusofthings.com API in ESP32 boards.
 
   	Created by Jaume Miralles Isern, April 10, 2019.
 */
@@ -11,28 +11,27 @@
 #define CircusESP32Lib_h
 
 #include "Arduino.h"
-#include "DHT.h"
 #include "WiFi.h"
 #include <HTTPClient.h>
 #include <WiFiClientSecure.h>
 
- 
+
 class CircusESP32Lib
 {
-  	public:
+  public:
 		CircusESP32Lib(char *server, char *ssid, char *pass);
 		void begin();
 		void write(char *key, double value, char *token);
-                double read(char *key, char *token);
-	private:
+    double read(char *key, char *token);
 		void getCertificate();
+	private:
 		char* parseServerResponse(char *r, char *label, int offset);
-                char* waitResponse(int timeout, WiFiClientSecure *client);
+    char* waitResponse(int timeout, WiFiClientSecure *client);
 		int count(char *text);
 		char _charBuf_rootCA[1250];
 		char *_server;
 		char *_ssid;
-                char *_pass;
+    char *_pass;
 };
 
 #endif
