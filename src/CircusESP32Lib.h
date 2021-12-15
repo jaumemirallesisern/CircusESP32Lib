@@ -1,5 +1,5 @@
 /*
-  	CircusESP32Lib.h  (Version 1.0.0)
+  	CircusESP32Lib.h  (Version 1.0.1)
 
 	  Implements the circusofthings.com API in ESP32 boards.
 
