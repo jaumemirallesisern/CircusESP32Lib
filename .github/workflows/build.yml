@@ -29,7 +29,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade platformio
-        pio lib -g install "beegee-tokyo/DHT sensor library for ESPx@^1.18"
+        pio pkg install -g -l "adafruit/DHT sensor library@^1.4.3"
     - name: Run PlatformIO
       run: pio ci --lib="." --board=esp32dev
       env:
