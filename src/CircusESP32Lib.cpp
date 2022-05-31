@@ -1,5 +1,5 @@
 /*
-  	CircusESP32Lib.cpp  (Version 1.0.1)
+  	CircusESP32Lib.cpp
 
 	Implements the circusofthings.com API in ESP32 boards.
 
@@ -62,7 +62,7 @@ void CircusESP32Lib::write(char *key, double value, char *token) {
         	String strBody(body);
         	client.println("PUT /WriteValue HTTP/1.0");
         	client.println("Host: www.circusofthings.com");
-        	client.println("User-Agent: CircusESP32Lib-1.0.1");
+        	client.println("User-Agent: CircusESP32Lib-1.0.2");
         	client.println("Content-Type:application/json");
         	client.print("Content-Length: ");
         	client.println(strBody.length());
@@ -100,7 +100,7 @@ double CircusESP32Lib::read(char *key, char *token) {
         	//client.println("GET /ReadValue HTTP/1.0");
 		client.println(q); // nou
         	client.println("Host: www.circusofthings.com");
-        	client.println("User-Agent: CircusESP32Lib-1.0.1");
+        	client.println("User-Agent: CircusESP32Lib-1.0.2");
         	client.println("Content-Type:application/json");
         	client.println("Connection: close");
         	client.println();

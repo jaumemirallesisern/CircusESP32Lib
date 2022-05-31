@@ -1,2 +1,2 @@
-# CircusESP32Lib-1.0.0
+# CircusESP32Lib
 Implements the circusofthings API when used with ESP32 board
