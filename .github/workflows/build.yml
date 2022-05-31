@@ -31,6 +31,6 @@ jobs:
         pip install --upgrade platformio
         pio pkg install -g -l "adafruit/DHT sensor library@^1.4.3" -l "adafruit/Adafruit Unified Sensor@^1.1.5"
     - name: Run PlatformIO
-      run: pio ci --lib="." --board=esp32dev
+      run: pio ci --lib="." --board=esp32dev -O "lib_ldf_mode = chain+"
       env:
         PLATFORMIO_CI_SRC: ${{ matrix.example }}
