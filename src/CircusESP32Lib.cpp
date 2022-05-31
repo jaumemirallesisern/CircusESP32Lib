@@ -11,14 +11,14 @@
 
 CircusESP32Lib::CircusESP32Lib(char *server, char *ssid, char *pass)
 {
-		_server = server;
+    _server = server;
     _ssid = ssid;
     _pass = pass;
 }
 
 void CircusESP32Lib::begin()
 {
-		WiFi.begin(_ssid, _pass); // Connect to your Wifi with the paremeters you provided at the begining
+    	WiFi.begin(_ssid, _pass); // Connect to your Wifi with the paremeters you provided at the begining
     	while (WiFi.status() != WL_CONNECTED) {
 		delay(1000);
     	}
@@ -124,7 +124,7 @@ double CircusESP32Lib::read(char *key, char *token) {
 		}
 
 		char *responsebody = waitResponse(5000,&client);
-		if (responsebody!=(char)0) {
+		if (responsebody!= nullptr) {
 			char labelk[] = "Key";
 			char *key = parseServerResponse(responsebody, labelk, 3);
 			char labelm[] = "Message";
@@ -177,7 +177,7 @@ Serial.println(labelsize);
         i++; ini++;
     }
 
-    return (char)0;
+    return nullptr;
 }
 
 int CircusESP32Lib::count(char *text) {
